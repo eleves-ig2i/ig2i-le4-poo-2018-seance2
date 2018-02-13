@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
@@ -18,11 +19,13 @@ import javax.persistence.OneToMany;
  * Entité représentant un médecin
  * @author user
  */
-@NamedQuery(name="Medecin.findMedecinByChef", 
-            query="SELECT m "
-				+ "FROM Medecin m "
-				+ "WHERE UPPER(m.chef.nom) = :nomChef AND UPPER(m.chef.prenom) = :prenomChef"
-)
+@NamedQueries({
+	@NamedQuery(name="Medecin.findMedecinByChef", 
+				query="SELECT m "
+					+ "FROM Medecin m "
+					+ "WHERE UPPER(m.chef.nom) = :nomChef AND UPPER(m.chef.prenom) = :prenomChef"
+	)
+})
 @Entity
 public class Medecin extends Personne implements Serializable {
 
