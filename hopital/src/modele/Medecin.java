@@ -1,7 +1,9 @@
 package modele;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -38,12 +40,12 @@ public class Medecin extends Personne implements Serializable {
 	@Column(scale = 2, nullable = false)
 	private double salaire;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="service")
 	private Service service;
 	
 	@OneToMany(mappedBy="manager",
-			cascade=CascadeType.PERSIST)
+			cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Set<Service> ensServicesDiriges; 
 	
 	@ManyToOne
@@ -51,8 +53,11 @@ public class Medecin extends Personne implements Serializable {
 	private Medecin chef;
 	
 	@OneToMany(mappedBy="chef",
-			cascade=CascadeType.PERSIST)
+			cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Set<Medecin> subordonnes;
+	
+	@OneToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	public List<Participation> participe = new ArrayList<Participation>();
 	
 	/**
 	 * Constructeur par défault
@@ -100,6 +105,14 @@ public class Medecin extends Personne implements Serializable {
 		this.service = service;
 	} 
 
+	/**
+	 * Ajoute une participation à un médecin
+	 * @param p 
+	 */
+	public void addParticipant(Participation p){
+		this.participe.add(p);
+	}
+	
 	/**
 	 * Ajouter un service à la liste des services dirigés par un médecin
 	 * @param s

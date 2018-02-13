@@ -34,10 +34,10 @@ public class Service implements Serializable {
 	private String localisation;
 	
 	@OneToMany(mappedBy="service",
-			cascade=CascadeType.PERSIST)
+			cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Set<Medecin> ensMedecins;   
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="manager")
 	private Medecin manager;
 
