@@ -37,8 +37,8 @@ public class TestJPQL1 {
 	 * @return 
 	 */
 	public static List<Medecin> getMedecinsService(EntityManager em, String serviceName) {
-		Query query = em.createQuery("SELECT m FROM Medecin m WHERE m.service.nom = :service");
-		query.setParameter("service", serviceName);		
+		Query query = em.createQuery("SELECT m FROM Medecin m WHERE UPPER(m.service.nom) = :service");
+		query.setParameter("service", serviceName.toUpperCase());		
 		return query.getResultList();
 	}
 }
