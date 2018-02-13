@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -16,6 +18,11 @@ import javax.persistence.UniqueConstraint;
  * Entité représentant une personne
  * @author user
  */
+@NamedQueries({
+     @NamedQuery(name="Personne.findAll", 
+            query="SELECT p FROM Personne p "
+    )
+})
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @Table(uniqueConstraints = {

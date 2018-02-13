@@ -26,6 +26,12 @@ import javax.persistence.OneToMany;
 				query="SELECT m "
 					+ "FROM Medecin m "
 					+ "WHERE UPPER(m.chef.nom) = :nomChef AND UPPER(m.chef.prenom) = :prenomChef"
+	),
+	@NamedQuery(name="Medecin.findParticipantEquipe", 
+			query="SELECT m FROM Medecin m WHERE m.participe IS NOT EMPTY "
+	),
+	 @NamedQuery(name="Medecin.findParticipantNoEquipe", 
+			query="SELECT m FROM Medecin m WHERE m.participe IS EMPTY "
 	)
 })
 @Entity
@@ -157,10 +163,14 @@ public class Medecin extends Personne implements Serializable {
 	@Override
 	public String toString() {
 		String result = "Médecin "+ super.getId() + " [\n\tNom :" + nom + "\n\tPrénom :" + prenom + 
-				"\n\tSalaire :" + salaire + "\n\tDirige les services ";
-		for(Service s : ensServicesDiriges){
-			result += s.getNom() + " - " + s.getLocalisation();
+				"\n\tSalaire :" + salaire;
+		if(ensServicesDiriges.size() > 0){
+			result +=  "\n\tDirige les services ";
+			for(Service s : ensServicesDiriges){
+				result += s.getNom() + " - " + s.getLocalisation();
+			}
 		}
+		else result += "\n\tNe dirige pas de services ";
 		return result+"\n]";
 	}
 	
