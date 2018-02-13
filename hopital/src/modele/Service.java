@@ -27,10 +27,10 @@ public class Service implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
 	
-	@Column(name="SERVNAME",length = 50,unique = true,nullable = false)
+	@Column(length = 50,unique = true,nullable = false)
 	private String nom;
 	
-	@Column(name="SERVLOCALISATION",length = 50,nullable = false)
+	@Column(length = 50,nullable = false)
 	private String localisation;
 	
 	@OneToMany(mappedBy="service",

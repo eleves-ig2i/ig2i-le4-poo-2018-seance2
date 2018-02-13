@@ -40,16 +40,6 @@ public class Malade extends Personne implements Serializable {
 	 * Constructeur par données
 	 * @param nom
 	 * @param prenom 
-	 */
-	public Malade(String nom, String prenom) {
-		super(nom, prenom);
-		this.adresse = new Adresse(0, "", "");
-	}
-
-	/**
-	 * Constructeur par données
-	 * @param nom
-	 * @param prenom 
 	 * @param adresse 
 	 */
 	public Malade(String nom, String prenom, Adresse adresse) {

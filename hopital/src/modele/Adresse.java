@@ -5,7 +5,7 @@ import javax.persistence.Embeddable;
 
 /**
  * Représente l'adresse
- * @author seb
+ * @author user
  */
 @Embeddable
 public class Adresse implements Serializable {
