@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import modele.Malade;
 import modele.Medecin;
 import modele.Service;
 
@@ -30,6 +31,10 @@ public class Test3 {
 				Medecin med4 = new Medecin("Hitmieu", "Helmer", 1873.30);
 				Medecin med5 = new Medecin("Cambronne", "Maude", 3765.20);
 				Medecin med6 = new Medecin("Haybon", "Sylvain", 2980.00);
+				Malade mal1 = new Malade("Proviste", "Alain");
+				Malade mal2 = new Malade("Trahuil", "Phil");
+				Malade mal3 = new Malade("Aœncieux", "Cecile");
+				Malade mal4 = new Malade("Conda", "Anna");
 				serv1.addMedecin(med1);
 				serv1.addMedecin(med2);
 				serv1.addMedecin(med3);
@@ -43,6 +48,11 @@ public class Test3 {
 				em.persist(serv1);
 				em.persist(serv2);
 				em.persist(serv3);
+				
+				em.persist(mal1);
+				em.persist(mal2);
+				em.persist(mal3);
+				em.persist(mal4);
 				et.commit();
 			} catch (Exception ex) {
 				et.rollback();
