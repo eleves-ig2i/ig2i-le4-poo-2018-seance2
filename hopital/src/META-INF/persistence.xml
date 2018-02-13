@@ -6,6 +6,7 @@
     <class>modele.Medecin</class>
     <class>modele.Malade</class>
     <class>modele.Personne</class>
+    <class>modele.Adresse</class>
     <properties>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/hopital"/>
