@@ -1,1 +1,8 @@
 node_modules/
+hopital/nbproject/private/
+hopital/build/
+hopital/nbbuild/
+hopital/dist/
+hopital/nbdist/
+hopital/bdd/
+hopital/test/

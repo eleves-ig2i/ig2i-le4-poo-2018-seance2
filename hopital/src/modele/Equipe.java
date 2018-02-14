@@ -1,8 +1,8 @@
 package modele;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -29,12 +29,13 @@ public class Equipe implements Serializable {
 	public String nom;
 	
 	@OneToMany(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
-	public List<Participation> participe = new ArrayList<Participation>();
+	public Set<Participation> participe;
 	
 	/**
 	 * Constructeur par défault
 	 */
 	public Equipe() {
+		this.participe = new HashSet<Participation>();
 	}
 	
 	/**
@@ -42,6 +43,7 @@ public class Equipe implements Serializable {
 	 * @param nom
 	 */
 	public Equipe(String nom) {
+		this();
 		this.nom = nom.toUpperCase();
 	}
 	

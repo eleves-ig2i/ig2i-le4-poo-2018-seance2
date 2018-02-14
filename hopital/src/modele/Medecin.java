@@ -1,9 +1,7 @@
 package modele;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -63,7 +61,7 @@ public class Medecin extends Personne implements Serializable {
 	private Set<Medecin> subordonnes;
 	
 	@OneToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-	public List<Participation> participe = new ArrayList<Participation>();
+	public Set<Participation> participe;
 	
 	/**
 	 * Constructeur par défault
@@ -72,6 +70,7 @@ public class Medecin extends Personne implements Serializable {
 		super();
 		this.ensServicesDiriges = new HashSet<>();
 		this.subordonnes = new HashSet<>();
+		this.participe = new HashSet<Participation>();
 	}
 
 	/**
@@ -84,6 +83,7 @@ public class Medecin extends Personne implements Serializable {
 		super(nom, prenom);
 		this.ensServicesDiriges = new HashSet<>();
 		this.subordonnes = new HashSet<>();
+		this.participe = new HashSet<Participation>();
 		this.salaire = (salaire > 0) ? ((double)((int)(salaire*100))/100) : 0;
 	}
 
