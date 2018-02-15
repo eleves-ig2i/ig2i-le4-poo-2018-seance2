@@ -8,18 +8,18 @@
 > * JPA query language (JPQL)
 
 ## Table of contents
-* [Installation](#installation)
-	* [Prerequisites](#prerequisites)
-		* [Java](#java)
-		* [NetBeans](#netbeans)
-	* [Installing](#installing)
-		* [Create the project](#create the project)
-		* [Setup Database](#setup Database)
-		* [Setup JDBC](#setup jdbc)
-		* [Setup Persistance](#setup persistance)
-		* [Persistance Unit](#persistance unit)
-* [Authors](#authors)
-* [License](#license)
+- [Installation](#installation)
+	- [Prerequisites](#prerequisites)
+		- [Java](#java)
+		- [NetBeans](#netbeans)
+	- [Installing](#installing)
+		- [Create the project](#create-the-project)
+		- [Setup Database](#setup-Database)
+		- [Setup JDBC](#setup-jdbc)
+		- [Setup Persistance](#setup-persistance)
+		- [Persistance Unit](#persistance-unit)
+- [Authors](#authors)
+- [License](#license)
 
 ## Installation
 ### Prerequisites
