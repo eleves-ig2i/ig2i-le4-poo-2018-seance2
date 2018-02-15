@@ -14,6 +14,7 @@
 		- [NetBeans](#netbeans)
 	- [Installing](#installing)
 		- [Create the project](#create-the-project)
+		- [Setup Project](#setup-project)
 		- [Setup Database](#setup-database)
 		- [Setup JDBC](#setup-jdbc)
 		- [Setup Persistance](#setup-persistance)
@@ -77,6 +78,14 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 * Open the sources with NetBeans
 
 ---------------------
+#### Setup Project
+* Open Netbeans
+* File > Project Properties ${project name} > Compiler > Compilation
+	* [Check] Compile on Save
+	* [Check] Enable Annotation Processing
+* [OK]
+
+---------------------
 #### Setup Database
 * Open Netbeans
 * Services > Databases > Java DB > Start Server
@@ -90,18 +99,21 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 
 ---------------------
 #### Setup JDBC
+* Open Netbeans
 * Projects > ${project name} > Librairies > Add Librairies
 	* [Import] > Java DB Driver
 	* [Add Library]
 
 ---------------------
 #### Setup Persistance
+* Open Netbeans
 * Projects > ${project name} > Librairies > Add Librairies
 	* [Import] > EclipseLink (JPA X.X)
 	* [Add Library]	
 
 ---------------------
 #### Persistance Unit
+* Open Netbeans
 * [Open] META-INF > persistence.xml
 	* PU name : ${persistance name}
 	* Database Connection : jdbc:derby...
