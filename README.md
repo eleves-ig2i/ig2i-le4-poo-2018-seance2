@@ -22,18 +22,21 @@ You need to :
 * [https://docs.oracle.com/netbeans/nb82/netbeans/NBDAG/work_app_servers.htm#NBDAG1687](https://docs.oracle.com/netbeans/nb82/netbeans/NBDAG/work_app_servers.htm#NBDAG1687)
 
 ##### Install
-`sudo aptitude update`
-`sudo aptitude install openjdk-8-jdk`
-
-`#Probably useless stuff`
-`#sudo apt-get purge openjdk`
-`#sudo apt-get purge oracle-java8-installer`
-`#sudo apt-get purge oracle-java9-installer`
-`#sudo aptitude install libderby-java libderbyclient-java`
-`#sudo apt-get install python-software-properties software-properties-common`
-`#sudo add-apt-repository ppa:webupd8team/java`
-`#sudo apt-get install oracle-java8-installer`
-`#sudo apt-get install oracle-java8-set-default`
+```bash
+sudo aptitude update
+sudo aptitude install openjdk-8-jdk
+```
+```bash
+#Probably useless stuff
+#sudo apt-get purge openjdk
+#sudo apt-get purge oracle-java8-installer
+#sudo apt-get purge oracle-java9-installer
+#sudo aptitude install libderby-java libderbyclient-java
+#sudo apt-get install python-software-properties software-properties-common
+#sudo add-apt-repository ppa:webupd8team/java
+#sudo apt-get install oracle-java8-installer
+#sudo apt-get install oracle-java8-set-default
+```
 
 ---------------------
 #### NetBeans
@@ -42,14 +45,17 @@ You need to :
 * [https://netbeans.org/community/releases/80/install.html#installation](https://netbeans.org/community/releases/80/install.html#installation)
 
 ##### Install
-* Go to * [https://netbeans.org/downloads/](https://netbeans.org/downloads/)* Download `Java EE`
+* Go to [https://netbeans.org/downloads/](https://netbeans.org/downloads/)
+* Download `Java EE`
 
-`cd ~`
-`mv Downloads/netbeans-8.2-javaee-linux.sh ./`
-`chmod +x ./netbeans-8.2-javaee-linux.sh`
-`# Select Glassfish AND Tomcat`
-`# For JDK installation path, select /usr/lib/jvm/java-8-openjdk-amd64`
-`./netbeans-8.2-javaee-linux.sht`
+```bash
+cd ~
+mv Downloads/netbeans-8.2-javaee-linux.sh ./
+chmod +x ./netbeans-8.2-javaee-linux.sh
+# Select Glassfish AND Tomcat
+# For JDK installation path, select /usr/lib/jvm/java-8-openjdk-amd64
+./netbeans-8.2-javaee-linux.sht
+```
 
 ### Installing
 #### Create the project
