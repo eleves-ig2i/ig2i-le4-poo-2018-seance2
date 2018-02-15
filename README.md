@@ -3,15 +3,15 @@
 ## Description
 
 This TP was realized with JPA inheritance and especially with the so-called "join" strategy. It's the continuation of the previous TP and allows to illustrate the following notions : 
-	* mapping of inheritance relationships
-	* inserted classes
-	* JPA query language (JPQL)
+* mapping of inheritance relationships
+* inserted classes
+* JPA query language (JPQL)
 
 ## Installation
 ### Prerequisites
 You need to :
-	* Java
-	* NetBeans
+* Java
+* NetBeans
 
 ---------------------
 #### Java
@@ -64,6 +64,7 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 * Download the sources
 * Copy paste content of the [src/](https://github.com/eleves-ig2i/ig2i-le4-poo-2018-tp-2/tree/master/hopital/src) folder in the folder of the new project 
 
+---------------------
 #### Setup Database
 * Open Netbeans
 * Services > Databases > Java DB > Start Server
@@ -75,16 +76,19 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 * [OK]
 * Services > Databases > jdbc:derby... > connect
 
+---------------------
 #### Setup JDBC
 * Projects > ${project name} > Librairies > Add Librairies
 	* [Import] > Java DB Driver
 	* [Add Library]
 
+---------------------
 #### Setup Persistance
 * Projects > ${project name} > Librairies > Add Librairies
 	* [Import] > EclipseLink (JPA X.X)
 	* [Add Library]	
 
+---------------------
 #### Persistance Unit
 * [Open] META-INF > persistence.xml
 	* PU name : ${persistance name}
