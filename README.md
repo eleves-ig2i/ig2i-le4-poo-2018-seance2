@@ -14,7 +14,7 @@
 		- [NetBeans](#netbeans)
 	- [Installing](#installing)
 		- [Create the project](#create-the-project)
-		- [Setup Database](#setup-Database)
+		- [Setup Database](#setup-database)
 		- [Setup JDBC](#setup-jdbc)
 		- [Setup Persistance](#setup-persistance)
 		- [Persistance Unit](#persistance-unit)
