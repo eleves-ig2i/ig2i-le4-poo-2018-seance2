@@ -73,10 +73,8 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 
 ### Installing
 #### Create the project
-* Open NetBeans
-* Create New Project
 * Download the sources
-* Copy paste content of the [src/](https://github.com/eleves-ig2i/ig2i-le4-poo-2018-tp-2/tree/master/hopital/src) folder in the folder of the new project 
+* Open the sources with NetBeans
 
 ---------------------
 #### Setup Database
