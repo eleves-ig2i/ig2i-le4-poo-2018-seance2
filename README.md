@@ -80,7 +80,7 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 ---------------------
 #### Setup Project
 * Open Netbeans
-* File > Project Properties ${project name} > Compiler > Compilation
+* File > Project Properties ${project name} > Build > Compilation
 	* [Check] Compile on Save
 	* [Check] Enable Annotation Processing
 * [OK]
