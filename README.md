@@ -117,6 +117,11 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 * [Open] META-INF > persistence.xml
 	* PU name : ${persistance name}
 	* Database Connection : jdbc:derby...
+	* Table Generation Strategy : Drop and create
+	* [Add] Properties > eclipselink.logging.level : INFO
+	* [Add] Properties > eclipselink.ddl-generation.ouput-mode : both
+	* [Add] Properties > eclipselink.ddl-generation : drop-and-create-tables
+
 
 ## Authors
 * [Loïc BOURGOIS](https://github.com/loicbourgois) 
