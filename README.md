@@ -74,18 +74,11 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 
 ### Installing
 #### Create the project
-* Download the sources
-* Open the sources with NetBeans
+* Clone the repository in your local machine
+* Open NetBeans
+* File > Open Project > ${repo name} > hopital
+* [Open Project]
 
----------------------
-#### Setup Project
-* Open Netbeans
-* File > Project Properties ${project name} > Build > Compilation
-	* [Check] Compile on Save
-	* [Check] Enable Annotation Processing
-* [OK]
-
----------------------
 #### Setup Database
 * Open Netbeans
 * Services > Databases > Java DB > Start Server
@@ -97,22 +90,26 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 * [OK]
 * Services > Databases > jdbc:derby... > connect
 
----------------------
+#### Setup Project
+* Open Netbeans
+* File > Project Properties ${project name} > Build > Compilation
+	* [Check] Compile on Save
+	* [Check] Enable Annotation Processing
+* [OK]
+
 #### Setup JDBC
 * Open Netbeans
 * Projects > ${project name} > Librairies > Add Librairies
 	* [Import] > Java DB Driver
 	* [Add Library]
 
----------------------
 #### Setup Persistance
 * Open Netbeans
 * Projects > ${project name} > Librairies > Add Librairies
 	* [Import] > EclipseLink (JPA X.X)
-	* [Add Library]	
+	* [Add Library]
 
----------------------
-#### Persistance Unit
+#### Setup Persistance Unit
 * Open Netbeans
 * [Open] META-INF > persistence.xml
 	* PU name : ${persistance name}
@@ -122,10 +119,9 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 	* [Add] Properties > eclipselink.ddl-generation.ouput-mode : both
 	* [Add] Properties > eclipselink.ddl-generation : drop-and-create-tables
 
-
 ## Authors
 * [Loïc BOURGOIS](https://github.com/loicbourgois) 
 * [Sébastien CORNUEL](https://github.com/Hercules0402)
 
 ## License
-This TP is licensed under the MIT License - see the [LICENSE](https://github.com/eleves-ig2i/ig2i-le4-poo-2018-tp-2/blob/master/LICENSE) file for details	
+This TP is licensed under the MIT License - see the [LICENSE](https://github.com/eleves-ig2i/ig2i-le4-poo-2018-tp-2/blob/master/LICENSE) file for details
