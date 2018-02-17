@@ -28,7 +28,6 @@ You need to :
 * Java
 * NetBeans
 
----------------------
 #### Java
 ##### Ressources
 * [https://stackoverflow.com/questions/25289482/installing-jdk8-on-ubuntu-unable-to-locate-package-update-doesnt-fix/31869659#31869659](https://stackoverflow.com/questions/25289482/installing-jdk8-on-ubuntu-unable-to-locate-package-update-doesnt-fix/31869659#31869659) 
@@ -53,7 +52,6 @@ sudo aptitude install openjdk-8-jdk
 #sudo apt-get install oracle-java8-set-default
 ```
 
----------------------
 #### NetBeans
 ##### Ressources
 * [https://netbeans.org/downloads/](https://netbeans.org/downloads/) 
