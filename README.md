@@ -122,4 +122,4 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 * [Sébastien CORNUEL](https://github.com/Hercules0402)
 
 ## License
-This TP is licensed under the MIT License - see the [LICENSE](https://github.com/eleves-ig2i/eleves-ig2i/ig2i-le4-poo-2018-tp2/blob/master/LICENSE) file for details
+This TP is licensed under the MIT License - see the [LICENSE](https://github.com/eleves-ig2i/ig2i-le4-poo-2018-tp2/blob/master/LICENSE) file for details
