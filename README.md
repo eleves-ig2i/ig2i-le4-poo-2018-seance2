@@ -1,4 +1,4 @@
-# Session 2 [![Build Status](https://travis-ci.org/eleves-ig2i/ig2i-le4-poo-2018-tp-2.svg?branch=master)](https://travis-ci.org/eleves-ig2i/ig2i-le4-poo-2018-tp-2)
+# Session 2 [![Build Status](https://travis-ci.org/eleves-ig2i/ig2i-le4-poo-2018-tp2.svg?branch=master)](https://travis-ci.org/eleves-ig2i/ig2i-le4-poo-2018-tp2)
 
 ## Description
 
@@ -122,4 +122,4 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 * [Sébastien CORNUEL](https://github.com/Hercules0402)
 
 ## License
-This TP is licensed under the MIT License - see the [LICENSE](https://github.com/eleves-ig2i/ig2i-le4-poo-2018-tp-2/blob/master/LICENSE) file for details
+This TP is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
