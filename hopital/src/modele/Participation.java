@@ -19,18 +19,18 @@ import javax.persistence.ManyToOne;
 public class Participation implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name="fonction",length = 50, nullable = false)
 	private String fonction;
-	
+
 	@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
 	@JoinColumn(name="medecin")
 	private Medecin medecin;
-	 
+
 	@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
 	@JoinColumn(name="equipe")
 	private Equipe equipe;
@@ -40,12 +40,12 @@ public class Participation implements Serializable {
 	 */
 	public Participation() {
 	}
-	
+
 	/**
 	 * Constructeur par données
 	 * @param medecin
 	 * @param equipe
-	 * @param fonction 
+	 * @param fonction
 	 */
 	public Participation(Medecin medecin, Equipe equipe, String fonction) {
 		this.medecin = medecin;
@@ -54,11 +54,11 @@ public class Participation implements Serializable {
 		equipe.addParticipation(this);
 		this.fonction = fonction.toUpperCase();
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public String getFonction() {
 		return fonction;
 	}
@@ -107,12 +107,12 @@ public class Participation implements Serializable {
 		}
 		return true;
 	}
-	
-	
+
+
 
 	@Override
 	public String toString() {
 		return "Participation [\n\tFonction=" + fonction + "\n\tMédecin=" + medecin + "\n\tEquipe=" + equipe + "\n]";
 	}
-	
+
 }

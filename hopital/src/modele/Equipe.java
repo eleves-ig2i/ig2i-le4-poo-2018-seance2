@@ -20,24 +20,24 @@ import javax.persistence.OneToMany;
 public class Equipe implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(length = 50, nullable = false, unique=true)
 	public String nom;
-	
+
 	@OneToMany(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
 	public Set<Participation> participe;
-	
+
 	/**
 	 * Constructeur par défault
 	 */
 	public Equipe() {
 		this.participe = new HashSet<Participation>();
 	}
-	
+
 	/**
 	 * Constructeur par par données
 	 * @param nom
@@ -46,12 +46,12 @@ public class Equipe implements Serializable {
 		this();
 		this.nom = nom.toUpperCase();
 	}
-	
-	
+
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public String getNom() {
 		return nom;
 	}
@@ -84,10 +84,10 @@ public class Equipe implements Serializable {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Ajoute une participation à une équipe
-	 * @param p 
+	 * @param p
 	 */
 	public void addParticipation(Participation p){
 		this.participe.add(p);
@@ -97,5 +97,5 @@ public class Equipe implements Serializable {
 	public String toString() {
 		return " Equipe [\n\tId : " + id + "\n\tNom : " + nom + "\n]";
 	}
-	
+
 }

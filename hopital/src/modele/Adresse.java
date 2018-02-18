@@ -18,13 +18,13 @@ public class Adresse implements Serializable {
 	 * Contructeur par défault
 	 */
 	public Adresse() {
-	}	
-	
+	}
+
 	/**
 	 * Constructeur par donnés
 	 * @param numero
 	 * @param rue
-	 * @param ville 
+	 * @param ville
 	 */
 	public Adresse(int numero, String rue, String ville) {
 		this.numero = numero;
@@ -54,11 +54,11 @@ public class Adresse implements Serializable {
 
 	public void setVille(String ville) {
 		this.ville = ville;
-	}	
+	}
 
 	@Override
 	public String toString() {
 		return "Adresse[\n\tNuméro : " + numero + "\n\tRue : " + rue + "\n\tVille : " + ville + "\n]";
 	}
-	
+
 }

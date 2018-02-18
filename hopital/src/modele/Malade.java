@@ -18,29 +18,29 @@ import javax.persistence.Id;
 public class Malade extends Personne implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Embedded
 	@AttributeOverrides({
 		@AttributeOverride(name = "rue",column = @Column(name="rue",nullable = false)),
 		@AttributeOverride(name = "ville",column = @Column(name="ville",nullable = false))
 	})
 	private Adresse adresse;
-	
+
 	/**
 	 * Constructeur par défault
 	 */
-	public Malade(){		
+	public Malade(){
 	}
 
 	/**
 	 * Constructeur par données
 	 * @param nom
-	 * @param prenom 
-	 * @param adresse 
+	 * @param prenom
+	 * @param adresse
 	 */
 	public Malade(String nom, String prenom, Adresse adresse) {
 		super(nom, prenom);
@@ -54,11 +54,11 @@ public class Malade extends Personne implements Serializable {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Malade "+ super.getId() + " [\n\tNom :" + nom + "\n\tPrénom :" + prenom + 
+		return "Malade "+ super.getId() + " [\n\tNom :" + nom + "\n\tPrénom :" + prenom +
 				"\n]";
 	}
-	
+
 }

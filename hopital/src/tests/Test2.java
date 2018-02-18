@@ -14,12 +14,12 @@ public class Test2 {
 	public static void main(String[] args) {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
-		
+
 		try{
 			final EntityTransaction et = em.getTransaction();
 			try{
 				et.begin();
-				// création d’entités persistantes				
+				// création d’entités persistantes
 				Medecin med1 = new Medecin("Trancen", "Jean", 2135.23);
 				Medecin med2 = new Medecin("Gator", "Coralie", 3156.00);
 				Medecin med3 = new Medecin("Gator", "Magalie", 2545.3723);
@@ -27,7 +27,7 @@ public class Test2 {
 				em.persist(med2);
 				em.persist(med3);
 				et.commit();
-				
+
 			} catch (Exception ex) {
 				et.rollback();
 			}

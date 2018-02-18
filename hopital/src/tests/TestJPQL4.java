@@ -16,7 +16,7 @@ public class TestJPQL4 {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
 		final EntityTransaction et = em.getTransaction();
-		
+
 		try{
 			et.begin();
 			for(Medecin m : getMedecinsService(em, "CARDIOLOGIE")) {
@@ -25,9 +25,9 @@ public class TestJPQL4 {
 			}
 			et.commit();
 			for(Medecin m : getMedecinsService(em, "CARDIOLOGIE")) {
-				System.out.println("Médecin : "+m.getPrenom()+" "+m.getNom()+" "+m.getSalaire()+" €");				
-			}			
-			
+				System.out.println("Médecin : "+m.getPrenom()+" "+m.getNom()+" "+m.getSalaire()+" €");
+			}
+
 		} finally {
 			if(em != null && em.isOpen()){
 				em.close();
@@ -37,16 +37,16 @@ public class TestJPQL4 {
 			}
 		}
 	}
-	
+
 	/**
 	 * Retourne la liste des médecins d'un service
 	 * @param em
 	 * @param serviceName
-	 * @return 
+	 * @return
 	 */
 	public static List<Medecin> getMedecinsService(EntityManager em, String serviceName) {
 		Query query = em.createQuery("SELECT m FROM Medecin m WHERE UPPER(m.service.nom) = :service");
-		query.setParameter("service", serviceName.toUpperCase());		
+		query.setParameter("service", serviceName.toUpperCase());
 		return query.getResultList();
 	}
 }
