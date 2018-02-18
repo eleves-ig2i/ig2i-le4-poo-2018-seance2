@@ -19,9 +19,9 @@ import javax.persistence.UniqueConstraint;
  * @author user
  */
 @NamedQueries({
-     @NamedQuery(name="Personne.findAll", 
-            query="SELECT p FROM Personne p "
-    )
+	@NamedQuery(name="Personne.findAll",
+		query="SELECT p FROM Personne p "
+	)
 })
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -33,27 +33,27 @@ import javax.persistence.UniqueConstraint;
 public abstract class Personne implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(length = 50,nullable = false)
 	protected String nom;
-	
+
 	@Column(length = 50,nullable = false)
 	protected String prenom;
-	
+
 	/**
 	 * Constructeur par défault
 	 */
 	public Personne() {
 	}
-	
+
 	/**
 	 * Constructeur par données
 	 * @param nom
-	 * @param prenom 
+	 * @param prenom
 	 */
 	public Personne(String nom, String prenom) {
 		this.nom = nom.toUpperCase();
@@ -71,7 +71,7 @@ public abstract class Personne implements Serializable {
 	public String getPrenom() {
 		return prenom;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hash = 3;
@@ -106,5 +106,5 @@ public abstract class Personne implements Serializable {
 	public String toString() {
 		return "Personne [\n\tId : " + id + "\n\tNom : " + nom + "\n\tPrénom : " + prenom + "\n]";
 	}
-	
+
 }

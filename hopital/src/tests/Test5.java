@@ -1,5 +1,5 @@
 package tests;
-	
+
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,7 +13,7 @@ import modele.Medecin;
 import modele.Participation;
 import modele.Personne;
 import modele.Service;
-	
+
 /**
  * Représente les tests sur les associations médecins et services
  * @author seb
@@ -25,22 +25,22 @@ public class Test5 {
 		System.out.println("----- Tous les médecins participant à une équipe -----");
 		findMedecinsParticipant();
 		System.out.println("----- Tous les médecins ne participant à aucune équipe -----");
-		findMedecinsNoParticipant();		
+		findMedecinsNoParticipant();
 	}
-	
+
 	public static void findAllPersonnes()
 	{
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
-		
+
 		try
 		{
 			final EntityTransaction et = em.getTransaction();
 			try{
-				
-				Query query = em.createNamedQuery("Personne.findAll"); 
+
+				Query query = em.createNamedQuery("Personne.findAll");
 				List<Personne> personnes = query.getResultList();
-				
+
 				for(Personne p : personnes){
 					System.out.println(p.toString());
 				}
@@ -49,8 +49,8 @@ public class Test5 {
 				System.out.println("Exception : "+ex);
 				et.rollback();
 			}
-		} 
-		finally 
+		}
+		finally
 		{
 			if(em != null && em.isOpen()){
 					em.close();
@@ -59,19 +59,19 @@ public class Test5 {
 					emf.close();
 			}
 		}
-	} 
-	
+	}
+
 	public static void findMedecinsParticipant()
 	{
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
-		
+
 		try
 		{
 			final EntityTransaction et = em.getTransaction();
 			try{
-				
-				Query query = em.createNamedQuery("Medecin.findParticipantEquipe"); 
+
+				Query query = em.createNamedQuery("Medecin.findParticipantEquipe");
 				List<Medecin> medecins = query.getResultList();
 
 				for(Medecin m : medecins){
@@ -82,8 +82,8 @@ public class Test5 {
 				System.out.println("Exception : "+ex);
 				et.rollback();
 			}
-		} 
-		finally 
+		}
+		finally
 		{
 			if(em != null && em.isOpen()){
 					em.close();
@@ -92,19 +92,19 @@ public class Test5 {
 					emf.close();
 			}
 		}
-	} 
-	
+	}
+
 	public static void findMedecinsNoParticipant()
 	{
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
-		
+
 		try
 		{
 			final EntityTransaction et = em.getTransaction();
 			try{
-				
-				Query query = em.createNamedQuery("Medecin.findParticipantNoEquipe"); 
+
+				Query query = em.createNamedQuery("Medecin.findParticipantNoEquipe");
 				List<Medecin> medecins = query.getResultList();
 
 				for(Medecin m : medecins){
@@ -115,8 +115,8 @@ public class Test5 {
 				System.out.println("Exception : "+ex);
 				et.rollback();
 			}
-		} 
-		finally 
+		}
+		finally
 		{
 			if(em != null && em.isOpen()){
 					em.close();
@@ -125,5 +125,5 @@ public class Test5 {
 					emf.close();
 			}
 		}
-	} 
+	}
 }

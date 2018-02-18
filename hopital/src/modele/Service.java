@@ -25,18 +25,18 @@ public class Service implements Serializable {
 	@Id
 	@Column(name="SERVNO")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
-	
+	private Long id;
+
 	@Column(length = 50,unique = true,nullable = false)
 	private String nom;
-	
+
 	@Column(length = 50,nullable = false)
 	private String localisation;
-	
+
 	@OneToMany(mappedBy="service",
 			cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-	private Set<Medecin> ensMedecins;   
-	
+	private Set<Medecin> ensMedecins;
+
 	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="manager")
 	private Medecin manager;
@@ -51,14 +51,14 @@ public class Service implements Serializable {
 	/**
 	 * Constructeur par données
 	 * @param nom
-	 * @param localisation 
+	 * @param localisation
 	 */
 	public Service(String nom, String localisation) {
 		this();
 		this.nom = nom.toUpperCase();
 		this.localisation = localisation;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -77,27 +77,27 @@ public class Service implements Serializable {
 
 	public Set<Medecin> getEnsMedecins() {
 		return ensMedecins;
-	}	
+	}
 
 	public void setLocalisation(String localisation) {
 		this.localisation = localisation;
-	}  
+	}
 
 	public void setManager(Medecin manager) {
 		this.manager = manager;
 	}
-		
+
 	/**
 	 * Permet d'ajouter un médecin à un service
 	 * @param m
-	 * @return 
+	 * @return
 	 */
 	public boolean addMedecin(Medecin m){
 		Service s_old = m.getService();
 		if(ensMedecins.add(m)){
 			if(s_old != null){
-				s_old.ensMedecins.remove(m);				
-			}  
+				s_old.ensMedecins.remove(m);
+			}
 			m.setService(this);
 			return true;
 		}
@@ -105,7 +105,7 @@ public class Service implements Serializable {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hash = 0;
@@ -120,7 +120,7 @@ public class Service implements Serializable {
 			return false;
 		}
 		Service other = (Service) object;
-		if ((this.nom == null && other.nom.toUpperCase()!= null) || 
+		if ((this.nom == null && other.nom.toUpperCase()!= null) ||
 				(this.nom != null && !this.nom.equals(other.nom.toUpperCase()))) {
 			return false;
 		}
@@ -136,5 +136,5 @@ public class Service implements Serializable {
 		}
 		return result + "\n]";
 	}
-	
+
 }
