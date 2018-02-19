@@ -109,7 +109,6 @@ public class Participation implements Serializable {
 	}
 
 
-
 	@Override
 	public String toString() {
 		return "Participation [\n\tFonction=" + fonction + "\n\tMédecin=" + medecin + "\n\tEquipe=" + equipe + "\n]";
