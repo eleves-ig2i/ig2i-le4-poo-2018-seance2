@@ -5,7 +5,7 @@ module.exports = {
 		'.git',
 		'.travis.yml',
 		'hopital/build',
-		'sujet_poo4_tp2.pdf',
+		'ig2i-le4-poo-2018-tp2.pdf',
 		'nbproject/project.xml',
 		'hopital/nbproject/build-impl.xml',
 		'hopital/build.xml'
