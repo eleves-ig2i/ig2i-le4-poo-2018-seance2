@@ -15,10 +15,13 @@ import modele.Personne;
 import modele.Service;
 
 /**
- * Représente les tests sur les associations médecins et services
+ * Représente les tests sur les associations médecins et services.
  * @author seb
  */
 public class Test5 {
+	/**
+	 * TODO.
+	 */
 	public static void main(String[] args) {
 		System.out.println("----- Toutes les personnes -----");
 		findAllPersonnes();
@@ -28,101 +31,95 @@ public class Test5 {
 		findMedecinsNoParticipant();
 	}
 
-	public static void findAllPersonnes()
-	{
+	/**
+	 * TODO.
+	 */
+	public static void findAllPersonnes() {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
 
-		try
-		{
+		try {
 			final EntityTransaction et = em.getTransaction();
-			try{
+			try {
 
 				Query query = em.createNamedQuery("Personne.findAll");
 				List<Personne> personnes = query.getResultList();
 
-				for(Personne p : personnes){
+				for (Personne p : personnes) {
 					System.out.println(p.toString());
 				}
-			}
-			catch (Exception ex){
-				System.out.println("Exception : "+ex);
+			} catch (Exception ex) {
+				System.out.println("Exception : " + ex);
 				et.rollback();
 			}
-		}
-		finally
-		{
-			if(em != null && em.isOpen()){
-					em.close();
+		} finally {
+			if (em != null && em.isOpen()) {
+				em.close();
 			}
-			if(emf != null && emf.isOpen()){
-					emf.close();
+			if (emf != null && emf.isOpen()) {
+				emf.close();
 			}
 		}
 	}
 
-	public static void findMedecinsParticipant()
-	{
+	/**
+	 * TODO.
+	 */
+	public static void findMedecinsParticipant() {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
 
-		try
-		{
+		try {
 			final EntityTransaction et = em.getTransaction();
-			try{
+			try {
 
 				Query query = em.createNamedQuery("Medecin.findParticipantEquipe");
 				List<Medecin> medecins = query.getResultList();
 
-				for(Medecin m : medecins){
+				for (Medecin m : medecins) {
 					System.out.println(m.toString());
 				}
-			}
-			catch (Exception ex){
-				System.out.println("Exception : "+ex);
+			} catch (Exception ex) {
+				System.out.println("Exception : " + ex);
 				et.rollback();
 			}
-		}
-		finally
-		{
-			if(em != null && em.isOpen()){
-					em.close();
+		} finally {
+			if (em != null && em.isOpen()) {
+				em.close();
 			}
-			if(emf != null && emf.isOpen()){
-					emf.close();
+			if (emf != null && emf.isOpen()) {
+				emf.close();
 			}
 		}
 	}
 
-	public static void findMedecinsNoParticipant()
-	{
+	/**
+	 * TODO.
+	 */
+	public static void findMedecinsNoParticipant() {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
 
-		try
-		{
+		try {
 			final EntityTransaction et = em.getTransaction();
-			try{
+			try {
 
 				Query query = em.createNamedQuery("Medecin.findParticipantNoEquipe");
 				List<Medecin> medecins = query.getResultList();
 
-				for(Medecin m : medecins){
+				for (Medecin m : medecins) {
 					System.out.println(m.toString());
 				}
-			}
-			catch (Exception ex){
-				System.out.println("Exception : "+ex);
+			} catch (Exception ex) {
+				System.out.println("Exception : " + ex);
 				et.rollback();
 			}
-		}
-		finally
-		{
-			if(em != null && em.isOpen()){
-					em.close();
+		} finally {
+			if (em != null && em.isOpen()) {
+				em.close();
 			}
-			if(emf != null && emf.isOpen()){
-					emf.close();
+			if (emf != null && emf.isOpen()) {
+				emf.close();
 			}
 		}
 	}

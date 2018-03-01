@@ -12,17 +12,20 @@ import modele.Participation;
 import modele.Service;
 
 /**
- * Représente les tests sur les associations médecins et services
+ * Représente les tests sur les associations médecins et services.
  * @author seb
  */
 public class Test4 {
+	/**
+	 * TODO.
+	 */
 	public static void main(String[] args) {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
 
-		try{
+		try {
 			final EntityTransaction et = em.getTransaction();
-			try{
+			try {
 				et.begin();
 				// création d’entités persistantes
 				Service serv1 = new Service("Cardiologie", "Bat A, 1er étage");
@@ -74,10 +77,10 @@ public class Test4 {
 				et.rollback();
 			}
 		} finally {
-			if(em != null && em.isOpen()){
+			if (em != null && em.isOpen()) {
 				em.close();
 			}
-			if(emf != null && emf.isOpen()){
+			if (emf != null && emf.isOpen()) {
 				emf.close();
 			}
 		}

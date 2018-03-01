@@ -2,8 +2,8 @@ package modele;
 
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
- * Entité représentant une équipe
+ * Entité représentant une équipe.
  * @author seb
  */
 @Entity
@@ -25,22 +25,22 @@ public class Equipe implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 50, nullable = false, unique=true)
+	@Column(length = 50, nullable = false, unique = true)
 	public String nom;
 
-	@OneToMany(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	public Set<Participation> participe;
 
 	/**
-	 * Constructeur par défault
+	 * Constructeur par défault.
 	 */
 	public Equipe() {
 		this.participe = new HashSet<Participation>();
 	}
 
 	/**
-	 * Constructeur par par données
-	 * @param nom
+	 * Constructeur par par données.
+	 * @param nom TODO
 	 */
 	public Equipe(String nom) {
 		this();
@@ -86,10 +86,10 @@ public class Equipe implements Serializable {
 	}
 
 	/**
-	 * Ajoute une participation à une équipe
-	 * @param p
+	 * Ajoute une participation à une équipe.
+	 * @param p TODO
 	 */
-	public void addParticipation(Participation p){
+	public void addParticipation(Participation p) {
 		this.participe.add(p);
 	}
 

@@ -9,9 +9,12 @@ import javax.persistence.Query;
 import modele.Medecin;
 
 /**
- * Représente les tests sur le JPQL
+ * Représente les tests sur le JPQL.
  */
-public class TestJPQL5 {
+public class TestJpql5 {
+	/**
+	 * TODO.
+	 */
 	public static void main(String[] args) {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
@@ -20,10 +23,11 @@ public class TestJPQL5 {
 		Query query = em.createQuery("UPDATE Medecin m SET m.salaire = :salaire");
 		query.setParameter("salaire", 2000);
 
-		try{
+		try {
 			List<Medecin> medecins = getMedecins(em);
-			for(Medecin m : medecins) {
-				System.out.println("Médecin : "+m.getPrenom()+" "+m.getNom()+" "+m.getSalaire()+" €");
+			for (Medecin m : medecins) {
+				System.out.println("Médecin : " + m.getPrenom() + " "
+						+ m.getNom() + " " + m.getSalaire() + " €");
 			}
 			System.out.println("\n\n");
 			et.begin();
@@ -31,33 +35,35 @@ public class TestJPQL5 {
 			query.executeUpdate();
 			et.commit();
 
-			for(Medecin m : medecins) {
-				System.out.println("Médecin : "+m.getPrenom()+" "+m.getNom()+" "+m.getSalaire()+" €");
+			for (Medecin m : medecins) {
+				System.out.println("Médecin : " + m.getPrenom() + " " + m.getNom()
+						+ " " + m.getSalaire() + " €");
 			}
 			System.out.println("\n\n");
 
 			// mise à jour du contexte de persistance
-			for(Medecin m : medecins) {
+			for (Medecin m : medecins) {
 				em.refresh(m);
 			}
 
-			for(Medecin m : medecins) {
-				System.out.println("Médecin : "+m.getPrenom()+" "+m.getNom()+" "+m.getSalaire()+" €");
+			for (Medecin m : medecins) {
+				System.out.println("Médecin : " + m.getPrenom() + " " + m.getNom()
+						+ " " + m.getSalaire() + " €");
 			}
 
 		} finally {
-			if(em != null && em.isOpen()){
+			if (em != null && em.isOpen()) {
 				em.close();
 			}
-			if(emf != null && emf.isOpen()){
+			if (emf != null && emf.isOpen()) {
 				emf.close();
 			}
 		}
 	}
 
 	/**
-	 * Retourne la liste des médecins
-	 * @param em
+	 * Retourne la liste des médecins.
+	 * @param em TODO
 	 * @return
 	 */
 	public static List<Medecin> getMedecins(EntityManager em) {

@@ -16,21 +16,21 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
- * Entité représentant un médecin
+ * Entité représentant un médecin.
  * @author user
  */
 @NamedQueries({
-	@NamedQuery(name="Medecin.findMedecinByChef",
-				query="SELECT m "
-					+ "FROM Medecin m "
-					+ "WHERE UPPER(m.chef.nom) = :nomChef AND UPPER(m.chef.prenom) = :prenomChef"
-	),
-	@NamedQuery(name="Medecin.findParticipantEquipe",
-			query="SELECT m FROM Medecin m WHERE m.participe IS NOT EMPTY "
-	),
-	@NamedQuery(name="Medecin.findParticipantNoEquipe",
-			query="SELECT m FROM Medecin m WHERE m.participe IS EMPTY "
-	)
+		@NamedQuery(name = "Medecin.findMedecinByChef",
+					query = "SELECT m "
+						+ "FROM Medecin m "
+						+ "WHERE UPPER(m.chef.nom) = :nomChef AND UPPER(m.chef.prenom) = :prenomChef"
+		),
+		@NamedQuery(name = "Medecin.findParticipantEquipe",
+				query = "SELECT m FROM Medecin m WHERE m.participe IS NOT EMPTY "
+		),
+		@NamedQuery(name = "Medecin.findParticipantNoEquipe",
+				query = "SELECT m FROM Medecin m WHERE m.participe IS EMPTY "
+		)
 })
 @Entity
 public class Medecin extends Personne implements Serializable {
@@ -44,27 +44,27 @@ public class Medecin extends Personne implements Serializable {
 	@Column(scale = 2, nullable = false)
 	private double salaire;
 
-	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinColumn(name="service")
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinColumn(name = "service")
 	private Service service;
 
-	@OneToMany(mappedBy="manager",
-			cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(mappedBy = "manager",
+			cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Set<Service> ensServicesDiriges;
 
 	@ManyToOne
-	@JoinColumn(name="CHEF")
+	@JoinColumn(name = "CHEF")
 	private Medecin chef;
 
-	@OneToMany(mappedBy="chef",
-			cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(mappedBy = "chef",
+			cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Set<Medecin> subordonnes;
 
-	@OneToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	public Set<Participation> participe;
 
 	/**
-	 * Constructeur par défault
+	 * Constructeur par défault.
 	 */
 	public Medecin() {
 		super();
@@ -74,17 +74,17 @@ public class Medecin extends Personne implements Serializable {
 	}
 
 	/**
-	 * Constructeur par données
-	 * @param nom
-	 * @param prenom
-	 * @param salaire
+	 * Constructeur par données.
+	 * @param nom TODO
+	 * @param prenom TODO
+	 * @param salaire TODO
 	 */
 	public Medecin(String nom, String prenom, double salaire) {
 		super(nom, prenom);
 		this.ensServicesDiriges = new HashSet<>();
 		this.subordonnes = new HashSet<>();
 		this.participe = new HashSet<Participation>();
-		this.salaire = (salaire > 0) ? ((double)((int)(salaire*100))/100) : 0;
+		this.salaire = (salaire > 0) ? ((double)((int)(salaire * 100)) / 100) : 0;
 	}
 
 	public double getSalaire() {
@@ -95,7 +95,7 @@ public class Medecin extends Personne implements Serializable {
 		return service;
 	}
 
-	public Set<Service> getEnsServicesDiriges(){
+	public Set<Service> getEnsServicesDiriges() {
 		return ensServicesDiriges;
 	}
 
@@ -104,7 +104,7 @@ public class Medecin extends Personne implements Serializable {
 	}
 
 	public void setSalaire(double salaire) {
-		this.salaire = ((double)((int)(salaire*100))/100);
+		this.salaire = ((double)((int)(salaire * 100)) / 100);
 	}
 
 	public void setService(Service service) {
@@ -112,49 +112,49 @@ public class Medecin extends Personne implements Serializable {
 	}
 
 	/**
-	 * Ajoute une participation à un médecin
-	 * @param p
+	 * Ajoute une participation à un médecin.
+	 * @param p TODO
 	 */
-	public void addParticipant(Participation p){
+	public void addParticipant(Participation p) {
 		this.participe.add(p);
 	}
 
 	/**
-	 * Ajouter un service à la liste des services dirigés par un médecin
-	 * @param s
+	 * Ajouter un service à la liste des services dirigés par un médecin.
+	 * @param s TODO
 	 * @return
 	 */
 	public boolean addServiceDirige(Service s) {
-		Medecin m_old = s.getManager();
-		if(ensServicesDiriges.add(s)){
-			if(m_old != null){
-				m_old.ensServicesDiriges.remove(s);
+		Medecin oldMedecin = s.getManager();
+		if (ensServicesDiriges.add(s)) {
+			if (oldMedecin != null) {
+				oldMedecin.ensServicesDiriges.remove(s);
 			}
 			s.setManager(this);
 			return true;
-		}
-		else{
+		} else {
 			return false;
 		}
 	}
 
 	/**
-	 * Définis le médecin en chef
-	 * @param m
+	 * Définis le médecin en chef.
+	 * @param m TODO
 	 * @return
 	 */
 	public boolean setChef(Medecin m) {
-		if(m == this) return false;
-		else if(m == this.chef) return true;
-		else{
-			if(m.subordonnes.add(this)){
-				if(this.chef != null) {
+		if (m == this) {
+			return false;
+		} else if (m == this.chef) {
+			return true;
+		} else {
+			if (m.subordonnes.add(this)) {
+				if (this.chef != null) {
 					this.chef.subordonnes.remove(this);
 				}
 				this.chef = m;
 				return true;
-			}
-			else {
+			} else {
 				return false;
 			}
 		}
@@ -162,16 +162,17 @@ public class Medecin extends Personne implements Serializable {
 
 	@Override
 	public String toString() {
-		String result = "Médecin "+ super.getId() + " [\n\tNom :" + nom + "\n\tPrénom :" + prenom +
-				"\n\tSalaire :" + salaire;
-		if(ensServicesDiriges.size() > 0){
+		String result = "Médecin " + super.getId() + " [\n\tNom :" + nom + "\n\tPrénom :" + prenom
+				+ "\n\tSalaire :" + salaire;
+		if (ensServicesDiriges.size() > 0) {
 			result +=  "\n\tDirige les services ";
-			for(Service s : ensServicesDiriges){
+			for (Service s : ensServicesDiriges) {
 				result += s.getNom() + " - " + s.getLocalisation();
 			}
+		} else {
+			result += "\n\tNe dirige pas de services ";
 		}
-		else result += "\n\tNe dirige pas de services ";
-		return result+"\n]";
+		return result + "\n]";
 	}
 
 }

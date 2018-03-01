@@ -7,17 +7,20 @@ import javax.persistence.Persistence;
 import modele.Service;
 
 /**
- * Représente les tests sur le service
+ * Représente les tests sur le service.
  * @author user
  */
 public class Test1 {
+	/**
+	 * TODO.
+	 */
 	public static void main(String[] args) {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
 
-		try{
+		try {
 			final EntityTransaction et = em.getTransaction();
-			try{
+			try {
 				et.begin();
 				// création d’entités persistantes
 				Service serv1 = new Service("Cardiologie", "Bat A, 1er étage");
@@ -32,10 +35,10 @@ public class Test1 {
 				et.rollback();
 			}
 		} finally {
-			if(em != null && em.isOpen()){
+			if (em != null && em.isOpen()) {
 				em.close();
 			}
-			if(emf != null && emf.isOpen()){
+			if (emf != null && emf.isOpen()) {
 				emf.close();
 			}
 		}

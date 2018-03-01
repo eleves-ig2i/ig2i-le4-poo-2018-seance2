@@ -1,5 +1,5 @@
-var gulp = require("gulp");
-var lintspaces = require("gulp-lintspaces");
+var gulp = require('gulp');
+var lintspaces = require('gulp-lintspaces');
 
 gulp.task('lint', function() {
 	return gulp.src(['./**/*.java'])
@@ -9,7 +9,7 @@ gulp.task('lint', function() {
 			newlineMaximum: 2,
 			ignores: [
 				'java-comments'
-		]
+			]
 		}))
 		.pipe(lintspaces.reporter());
 });
