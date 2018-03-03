@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * Entité représentant une participation
+ * Entité représentant une participation.
  * @author seb
  */
 @Entity
@@ -24,28 +24,28 @@ public class Participation implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="fonction",length = 50, nullable = false)
+	@Column(name = "fonction",length = 50, nullable = false)
 	private String fonction;
 
-	@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
-	@JoinColumn(name="medecin")
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+	@JoinColumn(name = "medecin")
 	private Medecin medecin;
 
-	@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
-	@JoinColumn(name="equipe")
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+	@JoinColumn(name = "equipe")
 	private Equipe equipe;
 
 	/**
-	 * Constructeur par défault
+	 * Constructeur par défault.
 	 */
 	public Participation() {
 	}
 
 	/**
-	 * Constructeur par données
-	 * @param medecin
-	 * @param equipe
-	 * @param fonction
+	 * Constructeur par données.
+	 * @param medecin TODO
+	 * @param equipe TODO
+	 * @param fonction TODO
 	 */
 	public Participation(Medecin medecin, Equipe equipe, String fonction) {
 		this.medecin = medecin;
@@ -111,7 +111,8 @@ public class Participation implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Participation [\n\tFonction=" + fonction + "\n\tMédecin=" + medecin + "\n\tEquipe=" + equipe + "\n]";
+		return "Participation [\n\tFonction=" + fonction
+				+ "\n\tMédecin=" + medecin + "\n\tEquipe=" + equipe + "\n]";
 	}
 
 }

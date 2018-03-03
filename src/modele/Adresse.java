@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 /**
- * Représente l'adresse
+ * Représente l'adresse.
  * @author user
  */
 @Embeddable
@@ -15,16 +15,16 @@ public class Adresse implements Serializable {
 	private String ville;
 
 	/**
-	 * Contructeur par défault
+	 * Contructeur par défault.
 	 */
 	public Adresse() {
 	}
 
 	/**
-	 * Constructeur par donnés
-	 * @param numero
-	 * @param rue
-	 * @param ville
+	 * Constructeur par donnés.
+	 * @param numero TODO
+	 * @param rue TODO
+	 * @param ville TODO
 	 */
 	public Adresse(int numero, String rue, String ville) {
 		this.numero = numero;

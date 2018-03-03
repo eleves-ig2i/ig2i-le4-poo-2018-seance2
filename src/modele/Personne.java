@@ -15,19 +15,19 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 /**
- * Entité représentant une personne
+ * Entité représentant une personne.
  * @author user
  */
 @NamedQueries({
-	@NamedQuery(name="Personne.findAll",
-		query="SELECT p FROM Personne p "
-	)
+		@NamedQuery(name = "Personne.findAll",
+			query = "SELECT p FROM Personne p "
+		)
 })
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(uniqueConstraints = {
 		@UniqueConstraint (
-			columnNames={"NOM", "PRENOM"}
+			columnNames = {"NOM", "PRENOM"}
 		)
 })
 public abstract class Personne implements Serializable {
@@ -45,15 +45,15 @@ public abstract class Personne implements Serializable {
 	protected String prenom;
 
 	/**
-	 * Constructeur par défault
+	 * Constructeur par défault.
 	 */
 	public Personne() {
 	}
 
 	/**
-	 * Constructeur par données
-	 * @param nom
-	 * @param prenom
+	 * Constructeur par données.
+	 * @param nom TODO
+	 * @param prenom TODO
 	 */
 	public Personne(String nom, String prenom) {
 		this.nom = nom.toUpperCase();

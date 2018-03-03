@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Entité représentant un malade
+ * Entité représentant un malade.
  * @author user
  */
 @Entity
@@ -25,22 +25,22 @@ public class Malade extends Personne implements Serializable {
 
 	@Embedded
 	@AttributeOverrides({
-		@AttributeOverride(name = "rue",column = @Column(name="rue",nullable = false)),
-		@AttributeOverride(name = "ville",column = @Column(name="ville",nullable = false))
+			@AttributeOverride(name = "rue", column = @Column(name = "rue", nullable = false)),
+			@AttributeOverride(name = "ville", column = @Column(name = "ville", nullable = false))
 	})
 	private Adresse adresse;
 
 	/**
-	 * Constructeur par défault
+	 * Constructeur par défault.
 	 */
 	public Malade(){
 	}
 
 	/**
-	 * Constructeur par données
-	 * @param nom
-	 * @param prenom
-	 * @param adresse
+	 * Constructeur par données.
+	 * @param nom TODO
+	 * @param prenom TODO
+	 * @param adresse TODO
 	 */
 	public Malade(String nom, String prenom, Adresse adresse) {
 		super(nom, prenom);
@@ -57,8 +57,8 @@ public class Malade extends Personne implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Malade "+ super.getId() + " [\n\tNom :" + nom + "\n\tPrénom :" + prenom +
-				"\n]";
+		return "Malade " + super.getId() + " [\n\tNom :" + nom
+				+ "\n\tPrénom :" + prenom + "\n]";
 	}
 
 }

@@ -10,17 +10,20 @@ import modele.Medecin;
 import modele.Service;
 
 /**
- * Représente les tests sur les associations médecins et services
+ * Représente les tests sur les associations médecins et services.
  * @author user
  */
-public class Test3 {
+public class Test3Bis {
+	/**
+	 * TODO.
+	 */
 	public static void main(String[] args) {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
 
-		try{
+		try {
 			final EntityTransaction et = em.getTransaction();
-			try{
+			try {
 				et.begin();
 				// création d’entités persistantes
 				Service serv1 = new Service("Cardiologie", "Bat A, 1er étage");
@@ -45,6 +48,9 @@ public class Test3 {
 				med4.addServiceDirige(serv2);
 				med5.addServiceDirige(serv1);
 				med5.addServiceDirige(serv3);
+				med2.setChef(med1); // Ajout du médecin 1 comme chef du médecin 2
+				med3.setChef(med1);
+				med5.setChef(med6);
 
 				em.persist(serv1);
 				em.persist(serv2);
@@ -59,10 +65,10 @@ public class Test3 {
 				et.rollback();
 			}
 		} finally {
-			if(em != null && em.isOpen()){
+			if (em != null && em.isOpen()) {
 				em.close();
 			}
-			if(emf != null && emf.isOpen()){
+			if (emf != null && emf.isOpen()) {
 				emf.close();
 			}
 		}

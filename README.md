@@ -74,7 +74,7 @@ chmod +x ./netbeans-8.2-javaee-linux.sh
 #### Create the project
 * Clone the repository in your local machine
 * Open NetBeans
-* File > Open Project > ${repo name} > hopital
+* File > Open Project > ${repo name}
 * [Open Project]
 
 #### Setup Database

@@ -7,17 +7,20 @@ import javax.persistence.Persistence;
 import modele.Medecin;
 
 /**
- * Représente les tests sur les médecins
+ * Représente les tests sur les médecins.
  * @author user
  */
 public class Test2 {
+	/**
+	 * TODO.
+	 */
 	public static void main(String[] args) {
 		final EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopitalPU");
 		final EntityManager em = emf.createEntityManager();
 
-		try{
+		try {
 			final EntityTransaction et = em.getTransaction();
-			try{
+			try {
 				et.begin();
 				// création d’entités persistantes
 				Medecin med1 = new Medecin("Trancen", "Jean", 2135.23);
@@ -32,10 +35,10 @@ public class Test2 {
 				et.rollback();
 			}
 		} finally {
-			if(em != null && em.isOpen()){
+			if (em != null && em.isOpen()) {
 				em.close();
 			}
-			if(emf != null && emf.isOpen()){
+			if (emf != null && emf.isOpen()) {
 				emf.close();
 			}
 		}

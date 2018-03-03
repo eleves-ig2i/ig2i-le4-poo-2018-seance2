@@ -4,7 +4,7 @@ module.exports = {
 		'package-lock.json',
 		'.git',
 		'.travis.yml',
-		'hopital/build',
+		'build',
 		'ig2i-le4-poo-2018-tp2.pdf',
 		'nbproject/project.xml',
 		'hopital/nbproject/build-impl.xml',
